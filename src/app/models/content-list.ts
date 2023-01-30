@@ -1,3 +1,6 @@
+import { Title } from "@angular/platform-browser";
+import { IContent } from "./icontent";
+
 export class ContentList {
 
     static contentCount = 0; 
@@ -12,12 +15,15 @@ export class ContentList {
             return ++ContentList.contentCount;
         }
 
-    private _addContent: IContent[];
-
     get addContent(): IContent[]{ 
 
         return this._addContent;
 
+    }
+
+    public toString(input: number ) {
+
+        return this.addContent;
     }
 }
     
