@@ -5,7 +5,7 @@ export interface IContent {
     title: string;
     description?: string;
     author: string;
-    imgSrc: string;
+    imgSrc?: string;
     type: string;
-    tags?: [string];
+    tags?: string[];
 }

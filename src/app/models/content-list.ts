@@ -1,29 +1,51 @@
-import { Title } from "@angular/platform-browser";
+
 import { IContent } from "./icontent";
 
 export class ContentList {
 
-    static contentCount = 0; 
-    _addContent: IContent[]; 
+    _chessGame: IContent[]; 
 
-    constructor(addContent: IContent) {
-        this._addContent = []; 
-        this._addContent[0] = addContent; 
-        this.increaseCount();
-          }
-          increaseCount() {
-            return ++ContentList.contentCount;
+    constructor() {
+        this._chessGame = []; 
+     
         }
 
-    get addContent(): IContent[]{ 
+    get GameChess(): IContent[]{ 
 
-        return this._addContent;
+        return this._chessGame;
 
     }
 
-    public toString(input: number ) {
+    addContents(newGame: IContent) {
+        this._chessGame.push(newGame);
+    }
 
-        return this.addContent;
+    arryLength(): number {
+
+        return this._chessGame.length;
+    }
+
+    toString(index: number): string {
+
+        const GameOfChess: IContent = this._chessGame[index];
+        let prettyHtmlOutput = `
+          <h2>${GameOfChess.title}</h2>
+          <img src="${GameOfChess.imgSrc}">
+          <p>${GameOfChess.description}</p>
+          <span class="author">${GameOfChess.author}</span>
+          <span class="type">${GameOfChess.type}</span>`;
+
+          if (GameOfChess.tags) 
+          {
+            prettyHtmlOutput += '<div class="tags">'; 
+            GameOfChess.tags?.forEach((tag) => {
+              prettyHtmlOutput += `<span>${tag}</span>`; 
+            });
+      
+            prettyHtmlOutput += "</div>"; 
+          }
+          return prettyHtmlOutput;
+
     }
 }
     
