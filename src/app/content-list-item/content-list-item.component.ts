@@ -18,5 +18,10 @@ export class ContentListItemComponent {
   //       type: ""
   //     };
   //   }
-  
+
+  imageClicked(): void {
+    console.log("ID: ", this.contentItemInputValue?.id, " Description: ", this.contentItemInputValue?.description)
+  }
+
+
 }
