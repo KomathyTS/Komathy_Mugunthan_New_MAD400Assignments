@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
+import { IContent } from '../models/icontent';
 
 @Component({
   selector: 'app-content-list-item',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./content-list-item.component.scss']
 })
 export class ContentListItemComponent {
+  @Input() contentItemInputValue?: IContent;
 
+  // constructor() {
+  //     this.contentItemInputValue = {
+  //       id: -1,
+  //       title: "",
+  //       author: "",
+  //       imgSrc:"",
+  //       type: ""
+  //     };
+  //   }
+  
 }
