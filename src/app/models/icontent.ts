@@ -7,5 +7,5 @@ export interface IContent {
     author: string;
     imgSrc: string;
     type: string;
-    tags?: [string];
+    tags?: string[];
 }

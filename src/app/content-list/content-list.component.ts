@@ -20,7 +20,7 @@ export class ContentListComponent {
        author: "Ben KG",
        imgSrc: "https://toytheater.com/wp-content/uploads/chess.jpg",
        type: "Online chess game",
-       tags: ["Person VS Person"]
+       tags: ["Person VS Person", "Person VS Computer"]
        },
        {
        id: 1,
@@ -29,7 +29,7 @@ export class ContentListComponent {
        author: "FunMasterMike",
        imgSrc: "https://www.chesskid.com/images/socialmedia/welcome_to_chesskid.png",
        type: "Online chess game",
-       tags: ["Learn"]
+       tags: ["Learn", "Puzzels", "Play", "Coaching"]
        },
        {
         id: 2,
@@ -38,7 +38,7 @@ export class ContentListComponent {
         author: "Dana Lazarof",
         imgSrc: "https://play-lh.googleusercontent.com/SX2NTZLFLUXSIK36dN19uzmqZCMoqUPx4l74D-nxAK71o4YXL8JabA_xjgu8-dH7Jw=w526-h296-rw",
         type: "Chess app",
-        tags: ["Learn"]
+        tags: ["Learn", "Chess App", "Play", "Videos"]
        },
        {
         id: 3,
@@ -47,7 +47,7 @@ export class ContentListComponent {
         author: "Thibault Duplessis",
         imgSrc: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Lichess_Logo_2019.svg/1200px-Lichess_Logo_2019.svg.png",
         type: "Online chess",
-        tags: ["Rapid"]
+        tags: ["Rapid", "Blitz", "Bullet", "Classical", "Custom"]
     }]
   }
 

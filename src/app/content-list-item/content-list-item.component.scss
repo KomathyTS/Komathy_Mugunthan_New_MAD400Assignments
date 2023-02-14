@@ -80,10 +80,11 @@
       @include bordered-button-span; // using the mixin here!
       margin-top: 8px;
       margin-bottom: 8px;
-      color: rgb(40, 102, 48);
+      color: rgb(144, 107, 34);
+      text-align: center;
     }
-    span::before {
-      content: "#";
-      color: #fff;
-    }
+    // span::before {
+    //   // content: "#";
+    //   color: #fff;
+    // }
   }
