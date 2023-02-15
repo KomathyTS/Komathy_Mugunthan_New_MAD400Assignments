@@ -1,5 +1,2 @@
-<app-content-list-item [contentItemInputValue]="chessGameArray[0]"></app-content-list-item>
-<app-content-list-item [contentItemInputValue]="chessGameArray[1]"></app-content-list-item>
-<app-content-list-item [contentItemInputValue]="chessGameArray[2]"></app-content-list-item>
-<app-content-list-item [contentItemInputValue]="chessGameArray[3]"></app-content-list-item>
-
+<app-content-list-item *ngFor="let singleChessGame of chessGameArray"
+   [contentItemInputValue]="singleChessGame"></app-content-list-item>
