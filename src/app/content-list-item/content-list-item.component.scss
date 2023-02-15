@@ -5,6 +5,15 @@
     margin: 100px;
     padding: 26px;
     display: inline-block;
+
+    &.even-game {
+      background-color: #eed677;
+    }
+  }
+  
+  :host.odd-game {
+    background-color: #b5b4b0;
+
   }
 
   @mixin bordered-button-span {
