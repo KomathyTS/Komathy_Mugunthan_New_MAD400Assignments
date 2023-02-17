@@ -4,7 +4,7 @@ import { IContent } from "../models/icontent";
 // }
 
 
-const CHESSGAMES: IContent[] = [{
+export const CHESSGAMES: IContent[] = [{
 
     id: 0,
     title: "toytheater",
