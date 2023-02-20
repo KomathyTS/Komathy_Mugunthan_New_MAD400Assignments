@@ -16,12 +16,15 @@ export class ChessPlayerService {
   }
 
   getContentItem(index: number): Observable<IContent> {
+    console.warn("Got to get content item");
     let chessGameFound: IContent = INVALIDGAME;
     for (let i = 0; i < CHESSGAMES.length; i++){
       if (CHESSGAMES[i].id == index) {
         chessGameFound = CHESSGAMES[i];
+        break;
       }
     }
+    console.warn("Got the item", chessGameFound);
     return of(chessGameFound);
   }
 
@@ -45,6 +48,7 @@ export class ChessPlayerService {
         chessGameFound = CHESSGAMES[i];
         delete CHESSGAMES[i];
         console.log("Did the game get deleted? ", CHESSGAMES);
+        break;
       }
     }
     return of(chessGameFound);
