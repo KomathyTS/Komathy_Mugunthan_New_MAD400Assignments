@@ -5,4 +5,5 @@
    <app-content-list-item
    *ngFor="let singleChessGame of chessGameArray; even as thisChessGameIsEven; odd as thisChessGameIsOdd"
    [contentItemInputValue]="singleChessGame"
-   [ngClass]="{'even-game': thisChessGameIsEven, 'odd-game': thisChessGameIsOdd}"></app-content-list-item>
+   [ngClass]="{'even-game': thisChessGameIsEven, 'odd-game': thisChessGameIsOdd}">
+   </app-content-list-item>

@@ -42,3 +42,12 @@ export const CHESSGAMES: IContent[] = [{
      tags: ["Rapid", "Blitz", "Bullet", "Classical", "Custom"]
  }];
 
+
+ export const INVALIDGAME: IContent = {
+    id: -1,
+    title: "",
+    author: "",
+    type: "",
+    imgSrc: ""
+  };
+
