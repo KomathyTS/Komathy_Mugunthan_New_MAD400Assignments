@@ -1,9 +1,5 @@
 import { IContent } from "../models/icontent";
 
-// export interface MockContent {
-// }
-
-
 export const CHESSGAMES: IContent[] = [{
 
     id: 0,

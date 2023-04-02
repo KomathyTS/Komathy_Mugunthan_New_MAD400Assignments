@@ -43,8 +43,8 @@ export class ContentListComponent implements OnInit {
       console.log("Testing updating a game in the array: ", chessGame);
     });
 
-    this.chessPlayerService.deleteContentItem(3).subscribe((videoGame: IContent) => {
-      console.log("Testing deleting a single item (goose game): ", videoGame);
+    this.chessPlayerService.deleteContentItem(3).subscribe((chessGame: IContent) => {
+      console.log("Testing deleting a single item (goose game): ", chessGame);
     });
 
   }
