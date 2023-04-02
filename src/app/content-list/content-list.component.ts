@@ -22,12 +22,12 @@ export class ContentListComponent implements OnInit {
       this.chessGameArray = chessGames;
     });
 
-    this.chessPlayerService.getContentItem(2).subscribe((chessGame: IContent) => {
+    this.chessPlayerService.getContentItem(0).subscribe((chessGame: IContent) => {
       console.log("Testing getting a single content item: ", chessGame);
     }); 
 
     let testGameToUpdate: IContent = {
-      id: 1,
+      id: 2,
       title: "365Chess",
       description: "This has the biggest searchable chess games database online.",
       author: "arla Faraguna",
@@ -43,7 +43,7 @@ export class ContentListComponent implements OnInit {
       console.log("Testing updating a game in the array: ", chessGame);
     });
 
-    this.chessPlayerService.deleteContentItem(3).subscribe((chessGame: IContent) => {
+    this.chessPlayerService.deleteContentItem(0).subscribe((chessGame: IContent) => {
       console.log("Testing deleting a single item (goose game): ", chessGame);
     });
 

@@ -16,7 +16,13 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void{
-    this.chessPlayerService.getContentItem(1).subscribe((chessGame: IContent) => {
+    this.getTheNewItem("0");
+   }
+   getTheNewItem(newIdNumber: string): void {
+     console.warn("Getting an item: ", newIdNumber);
+     
+    this.chessPlayerService.getContentItem(Number(newIdNumber)).subscribe((chessGame: IContent) => {
+      console.warn("Got the input item ", chessGame);
        this.singleGame = chessGame;
     });
   }
