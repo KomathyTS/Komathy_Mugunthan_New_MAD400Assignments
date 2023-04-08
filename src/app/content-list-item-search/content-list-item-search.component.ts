@@ -10,9 +10,10 @@ import { ChessPlayerService } from '../service/chess-player.service';
 })
 export class ContentListItemSearchComponent implements OnInit {
   singleGame?: IContent;
+  searchDidNotWork: boolean;
 
   constructor(private chessPlayerService: ChessPlayerService) {
-
+    this.searchDidNotWork = false;
   }
 
   ngOnInit(): void {
@@ -24,6 +25,13 @@ export class ContentListItemSearchComponent implements OnInit {
   
 
     this.chessPlayerService.getContentItem(Number(newIdNumber)).subscribe((chessGame: IContent) => {
+     
+      if (chessGame == undefined || chessGame.id === -1) {
+        this.searchDidNotWork = true;
+        return;
+      }
+      
+      this.searchDidNotWork = false;
       console.warn("Got the item: ", chessGame);
       this.singleGame = chessGame
     });
