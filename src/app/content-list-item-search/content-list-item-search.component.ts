@@ -16,7 +16,14 @@ export class ContentListItemSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.chessPlayerService.getContentItem(2).subscribe((chessGame: IContent) => {
+    this.getTheNewItem("2");
+  }
+
+  getTheNewItem(newIdNumber: string): void {
+    console.warn ("Getting an item: ", newIdNumber);
+  
+
+    this.chessPlayerService.getContentItem(Number(newIdNumber)).subscribe((chessGame: IContent) => {
       console.warn("Got the item: ", chessGame);
       this.singleGame = chessGame
     });

@@ -1,2 +1,9 @@
+<div>
+    <label>
+      Item ID: <input type="number" #customIdNumberInput>
+    </label>
+    <button (click)="getTheNewItem(customIdNumberInput.value)">Search Item</button>
+  </div>
+
 <app-content-list-item [contentItemInputValue]="singleGame" class="special-item"></app-content-list-item>
 
