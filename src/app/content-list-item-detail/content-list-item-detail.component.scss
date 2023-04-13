@@ -1,0 +1,19 @@
+:host {
+    display: flex;
+    justify-content: center;
+    border: 2px solid #000;
+    border-radius: 10px;
+    width: 400px;
+    margin: 100px;
+    padding: 26px;
+    display: inline-block;
+    background: linear-gradient(to bottom, #40b3e4, #e0e0e0);
+    
+  }
+ 
+  img {
+    margin: 0 auto;
+    display: block;
+    width: 200px;
+    height: 200px;
+  }

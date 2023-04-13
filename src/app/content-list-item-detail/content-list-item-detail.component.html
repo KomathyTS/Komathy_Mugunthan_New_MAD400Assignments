@@ -1,1 +1,13 @@
-<p>content-list-item-detail works!</p>
+
+<div *ngIf="chessGameDetailItem">
+    <h2>{{chessGameDetailItem.title}}</h2>
+    <img *ngIf="chessGameDetailItem.imgSrc" [src]="chessGameDetailItem.imgSrc">
+    <p *ngIf="chessGameDetailItem.description" [innerHTML]="chessGameDetailItem.description"></p>
+    <div class="meta-data">
+      <span class="author">{{chessGameDetailItem.author}}</span>
+      <span class="type">{{chessGameDetailItem.type}}</span>
+    </div>
+    <div *ngIf="chessGameDetailItem.tags" class="tags">
+      <span *ngFor="let tag of chessGameDetailItem.tags">{{tag}}</span>
+    </div>
+  </div>
