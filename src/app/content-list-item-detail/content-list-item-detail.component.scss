@@ -17,3 +17,17 @@
     width: 200px;
     height: 200px;
   }
+
+  .back-to-list{
+   position: fixed;
+   left: 20px;
+   top: 20px;
+   border-radius: 16px;
+   padding: 16px;
+   background-color: rgb(213, 194, 28);
+   display: inline-block;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+   border: 10px solid #095115;
+   text-decoration: none;
+   color: #000000;
+  }
