@@ -1,11 +1,11 @@
-<div>
+<div class="searchBox">
     <label>
       Item ID: <input type="number" #customIdNumberInput>
     </label>
     <button (click)="getTheNewItem(customIdNumberInput.value)">Search Item</button>
-  </div>
+</div>
 
-  <p *ngIf="searchDidNotWork">
+  <p *ngIf="searchDidNotWork" class="searchMessage">
     This is not the content list item you're looking for
   </p>
 

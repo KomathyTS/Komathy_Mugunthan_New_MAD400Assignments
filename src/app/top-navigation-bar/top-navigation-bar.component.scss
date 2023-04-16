@@ -1,0 +1,27 @@
+:host {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+    padding: 16px;
+    background: #d1c9a7;
+ 
+    a {
+      display: inline-block;
+      padding: 8px;
+      border: 1px solid #000000;
+      border-radius: 8px;
+      background-color: dodgerblue;
+      color: #000000;
+      text-decoration: none;
+      font-weight: bold;
+     
+      &:hover {
+        color: #dede18;
+        border-color: #d24317;
+      }
+    }
+  }
+ 
