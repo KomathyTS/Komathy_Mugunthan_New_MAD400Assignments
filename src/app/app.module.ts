@@ -8,6 +8,7 @@ import { ContentListItemDetailComponent } from './content-list-item-detail/conte
 import { AppRoutingModule } from './app-routing.module';
 import { ContentListItemSearchComponent } from './content-list-item-search/content-list-item-search.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { TopNavigationBarComponent } from './top-navigation-bar/top-navigation-bar.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ContentListItemComponent,
     ContentListItemDetailComponent,
     ContentListItemSearchComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    TopNavigationBarComponent
   ],
   imports: [
     BrowserModule,
