@@ -2,7 +2,8 @@
 <a class="back-to-list" routerLink="/content">
   Go back to list
 </a>
-<a *ngIf="chessGameDetailItem && chessGameDetailItem.id > 0" class="previous-detail"
+
+<a *ngIf="chessGameDetailItem && chessGameDetailItem.id != undefined && chessGameDetailItem.id > 0" class="previous-detail"
   [routerLink]="['/content', chessGameDetailItem.id - 1]">
   Previous detail
 </a>
