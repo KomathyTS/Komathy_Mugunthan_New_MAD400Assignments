@@ -14,4 +14,20 @@ export class InMemoryDataService implements InMemoryDataService {
     let games: IContent[] = CHESSGAMES;
     return { games };
   }
+
+  genId(games: IContent[]): number {
+    if (games.length > 0) {
+      let gameIds: number[] = [];
+      games.forEach((individualGame) => {
+        if (!individualGame.id)
+          return;
+        gameIds.push(individualGame.id);
+      })
+
+      // using the spread operator
+      return Math.max(...gameIds) + 1;
+    }
+
+    return 0;
+  }
 }
