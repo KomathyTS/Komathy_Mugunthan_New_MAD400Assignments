@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { INVALIDGAME, CHESSGAMES } from '../data/mock-content';
 import { IContent } from '../models/icontent';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -9,59 +10,35 @@ import { IContent } from '../models/icontent';
 })
 export class ChessPlayerService {
 
-  constructor() { }
+ private httpOptions = {
+  headers: new HttpHeaders({
+    'Content-type': 'application/jason'
+  })
+ };
+
+ constructor(private http:HttpClient) {
+
+ }
 
   getContent(): Observable<IContent[]> {
-    return of(CHESSGAMES);
+    return this.http.get<IContent[]>("api/games");
   }
 
   getContentItem(index: number): Observable<IContent> {
     console.warn("Got to get content item");
-    let chessGameFound: IContent | undefined;
-    for (let i = 0; i < CHESSGAMES.length; i++){
-      if (CHESSGAMES[i].id == index) {
-        chessGameFound = CHESSGAMES[i];
-        break;
-      }
-    }
-    if (!chessGameFound) { // never found a valid game
-      return of(INVALIDGAME);
-    }
-    console.warn("Got the item", chessGameFound);
-    return of(chessGameFound);
+    return this.http.get<IContent>("api/games/" + index);
   }
 
-  addContentItem(item: IContent): Observable<IContent[]>{
-    if (CHESSGAMES.find((game: IContent) => game.id === item.id) == undefined) {
-      CHESSGAMES.push(item);
-    }
-    return of(CHESSGAMES);
+  addContentItem(item: IContent): Observable<IContent>{
+    return this.http.post<IContent>("api/games", item, this.httpOptions);
   }
 
-  updateContentItem(item: IContent): Observable<IContent[]>{
-    let indexOfGameToUpdate = CHESSGAMES.findIndex((game: IContent) => {
-      return game.id === item.id;
-    });
-    if (indexOfGameToUpdate !== -1) {
-      CHESSGAMES[indexOfGameToUpdate] = item;
-    }
-    return of(CHESSGAMES);
+  updateContentItem(item: IContent): Observable<IContent>{
+    return this.http.put<IContent>("api/games", item, this.httpOptions);
   }
 
-  deleteContentItem(index: number): Observable<IContent> {
-    let chessGameFound: IContent | undefined;
-    for (let i = 0; i < CHESSGAMES.length; i++){
-      if (CHESSGAMES[i].id === index) {
-        chessGameFound = CHESSGAMES[i];
-        delete CHESSGAMES[i];
-        console.log("Did the game get deleted? ", CHESSGAMES);
-        break;
-      }
-    }
-    if (!chessGameFound) {
-      return of(INVALIDGAME)
-    }
-    return of(chessGameFound);
+  deleteContentItem(index: number): Observable<unknown> {
+    return this.http.delete("api/games/" + index, this.httpOptions)
   }
 
 
