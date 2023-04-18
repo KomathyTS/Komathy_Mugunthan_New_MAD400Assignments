@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { INVALIDGAME, CHESSGAMES } from '../data/mock-content';
 import { IContent } from '../models/icontent';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
