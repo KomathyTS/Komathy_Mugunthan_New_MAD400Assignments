@@ -12,6 +12,7 @@ import { TopNavigationBarComponent } from './top-navigation-bar/top-navigation-b
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './service/in-memory-data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ModifyContentComponent } from './modify-content/modify-content.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     ContentListItemDetailComponent,
     ContentListItemSearchComponent,
     NotFoundComponent,
-    TopNavigationBarComponent
+    TopNavigationBarComponent,
+    ModifyContentComponent
   ],
   imports: [
     BrowserModule,
