@@ -13,7 +13,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './service/in-memory-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ModifyContentComponent } from './modify-content/modify-content.component';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { ModifyContentComponent } from './modify-content/modify-content.componen
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       delay: 1000,
     }),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
