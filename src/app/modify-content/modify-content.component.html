@@ -4,6 +4,9 @@
     Add New Chesss Game
   </h1>
   <p>
+    <label *ngIf="newContentItem.id && newContentItem.id >= 0">
+      ID: <input disabled [(ngModel)]="newContentItem.id">
+    </label>
     <label>
       Title: <input [(ngModel)]="newContentItem.title">
     </label>
