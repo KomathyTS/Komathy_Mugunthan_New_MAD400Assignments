@@ -29,7 +29,10 @@ const routes: Routes = [
     path: "addContent",
     component: ModifyContentComponent,
   },
-  
+  {
+    path: "editContent/:id",
+    component: ModifyContentComponent,
+  },
   {
     path: "**",
     component: NotFoundComponent,

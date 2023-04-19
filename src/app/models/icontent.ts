@@ -1,7 +1,7 @@
 
 
 export interface IContent {
-    id: number;
+    id?: number;
     title: string;
     description?: string;
     author: string;

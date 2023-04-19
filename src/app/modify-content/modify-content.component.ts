@@ -22,8 +22,8 @@ export class ModifyContentComponent {
     this.tagsToBeParsed.split(",").map(tag => 
       tag.trim()).filter(tag => tag.length > 0);
 
-      //************************************************************ */
-      this.newContentItem.id = 0;
+    
+      this.newContentItem.id = undefined;
 
       this.chessPlayerService.addContentItem(this.newContentItem).subscribe(newItemFromServer => {
         console.log("Chess Game Sucessfully Added", newItemFromServer);
