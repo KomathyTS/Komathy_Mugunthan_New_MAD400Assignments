@@ -24,5 +24,8 @@
     </label>
   </p>
   <p>
-    <button>Add Content</button>
-  </p>
+   <button (click)="addContent()">Add Content</button>
+ </p>
+ <p class="success-message" *ngIf="contentAddedSucessfully">
+   Content Successfully Added!
+ </p>
