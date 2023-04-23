@@ -10,7 +10,7 @@ import { ChessPlayerService } from '../service/chess-player.service';
 })
 export class ContentListItemDetailComponent implements OnInit{
   id?: number;
-  chessGameDetailItem?: IContent
+  chessGameDetailItem?: IContent;
 
   constructor(private route: ActivatedRoute, private chessPlayerService: ChessPlayerService) {
 
@@ -18,12 +18,14 @@ export class ContentListItemDetailComponent implements OnInit{
 
   ngOnInit(){
     this.route.paramMap.subscribe(params => {
-      this.id = Number(params.get('idNumberValue'))
+      this.id = Number(params.get('idNumberValue'));
 
 
       this.chessPlayerService.getContentItem(this.id).subscribe((chessGame: IContent) => {
         console.warn("Got the item in the detail: ", chessGame);
+
         this.chessGameDetailItem = chessGame;
+
       });
     });
   }

@@ -1,21 +1,32 @@
-
-<a class="back-to-list" routerLink="/content">
-  Go back to list
-</a>
-
-<a *ngIf="chessGameDetailItem && chessGameDetailItem.id != undefined && chessGameDetailItem.id > 0" class="previous-detail"
-  [routerLink]="['/content', chessGameDetailItem.id - 1]">
-  Previous detail
-</a>
 <div *ngIf="chessGameDetailItem">
-    <h2>{{chessGameDetailItem.title}}</h2>
-    <img *ngIf="chessGameDetailItem.imgSrc" [src]="chessGameDetailItem.imgSrc">
-    <p *ngIf="chessGameDetailItem.description" [innerHTML]="chessGameDetailItem.description"></p>
-    <div class="meta-data">
-      <span class="author">{{chessGameDetailItem.author}}</span>
-      <span class="type">{{chessGameDetailItem.type}}</span>
-    </div>
-    <div *ngIf="chessGameDetailItem.tags" class="tags">
-      <span *ngFor="let tag of chessGameDetailItem.tags">{{tag}}</span>
-    </div>
+
+  <a class="back-to-list" routerLink="/content">
+    Go back to list
+  </a>
+
+  <a *ngIf="(chessGameDetailItem.id ?? -1) > 0" class="previous-detail"
+    [routerLink]="['/content', (chessGameDetailItem.id ?? 0) -1]">
+    Previous detail
+  </a>
+
+  <h2>{{chessGameDetailItem.title}}</h2>
+
+  <img *ngIf="chessGameDetailItem.imgSrc" [src]="chessGameDetailItem.imgSrc">
+
+  <p *ngIf="chessGameDetailItem.description" [innerHTML]="chessGameDetailItem.description"></p>
+
+  <div class="meta-data">
+    <span class="author">{{chessGameDetailItem.author}}</span>
+    <span class="type">{{chessGameDetailItem.type}}</span>
   </div>
+
+  <div *ngIf="chessGameDetailItem.tags" class="tags">
+    <span *ngFor="let tag of chessGameDetailItem.tags">{{tag}}</span>
+  </div>
+
+  <a *ngIf="(chessGameDetailItem.id ?? -1) >= 0" class="edit-detail"
+    [routerLink]="['/editContent', chessGameDetailItem.id]">
+    Edit detail
+  </a>
+
+</div>
