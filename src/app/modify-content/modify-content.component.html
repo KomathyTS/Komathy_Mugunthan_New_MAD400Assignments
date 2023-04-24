@@ -40,7 +40,15 @@
     <ng-template #editButton>
       <button (click)="addContent()">Add Content</button>
     </ng-template>
- </p>
- <p class="success-message" *ngIf="contentAddedSucessfully">
-  Content Successfully Added!
- </p>
+  </p>
+
+  <p class="success-message" *ngIf="contentAddedSucessfully">
+    Content Successfully Added!
+  </p>
+
+  <p class="success-message" *ngIf="contentEditedSuccessfully">
+    Content Successfully Edited!
+    <a [routerLink]="['/content', newContentItem.id ?? 0]">
+      Back to Detail
+    </a>
+  </p>

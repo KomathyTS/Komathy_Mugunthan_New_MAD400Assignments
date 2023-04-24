@@ -9,10 +9,12 @@ import { ChessPlayerService } from '../service/chess-player.service';
   templateUrl: './modify-content.component.html',
   styleUrls: ['./modify-content.component.scss']
 })
+
 export class ModifyContentComponent implements OnInit{
   newContentItem!: IContent;
   tagsToBeParsed!: string;
   contentAddedSucessfully = false;
+  contentEditedSuccessfully = false;
 
   constructor(private route: ActivatedRoute, private chessPlayerService: ChessPlayerService) {
     this.resetContent();
@@ -26,16 +28,15 @@ export class ModifyContentComponent implements OnInit{
       if (id) {
         this.chessPlayerService.getContentItem(Number(id)).subscribe((chessGame: IContent) => {
           this.newContentItem = chessGame;
-
+          this.stringifyTags();
         });
       }
     })
   }
 
   addContent(): void {
-    this.newContentItem.tags =
-    this.tagsToBeParsed.split(",").map(tag =>
-      tag.trim()).filter(tag => tag.length > 0);
+
+      this.parseTags();
 
       this.newContentItem.id = undefined;
 
@@ -47,12 +48,26 @@ export class ModifyContentComponent implements OnInit{
   }
 
   editContent(): void {
+    this.parseTags();
 
+    this.chessPlayerService.updateContentItem(this.newContentItem).subscribe(updatedItemFromServer => {
+      console.log("Video Game Successfully Edited", updatedItemFromServer);
+      this.contentEditedSuccessfully = true;
+    });
   }
 
-  resetContent(): void {
+  private resetContent(): void {
     this.newContentItem = structuredClone(INVALIDGAME);
     this.tagsToBeParsed = "";
   }
+
+  private parseTags(): void {
+    this.newContentItem.tags = this.tagsToBeParsed.split(",").map(tag =>
+     tag.trim()).filter(tag => tag.length > 0);
+  }
+
+  private stringifyTags(): void {
+    this.tagsToBeParsed = this.newContentItem.tags?.join(", ") ?? "";
+   }
 
 }
