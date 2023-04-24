@@ -10,7 +10,7 @@ import { ChessPlayerService } from '../service/chess-player.service';
   styleUrls: ['./modify-content.component.scss']
 })
 export class ModifyContentComponent implements OnInit{
-  newContentItem!: IContent; 
+  newContentItem!: IContent;
   tagsToBeParsed!: string;
   contentAddedSucessfully = false;
 
@@ -26,17 +26,17 @@ export class ModifyContentComponent implements OnInit{
       if (id) {
         this.chessPlayerService.getContentItem(Number(id)).subscribe((chessGame: IContent) => {
           this.newContentItem = chessGame;
+
         });
       }
     })
   }
 
   addContent(): void {
-    this.newContentItem.tags = 
-    this.tagsToBeParsed.split(",").map(tag => 
+    this.newContentItem.tags =
+    this.tagsToBeParsed.split(",").map(tag =>
       tag.trim()).filter(tag => tag.length > 0);
 
-    
       this.newContentItem.id = undefined;
 
       this.chessPlayerService.addContentItem(this.newContentItem).subscribe(newItemFromServer => {
@@ -44,6 +44,10 @@ export class ModifyContentComponent implements OnInit{
         this.contentAddedSucessfully = true;
         this.resetContent();
       });
+  }
+
+  editContent(): void {
+
   }
 
   resetContent(): void {

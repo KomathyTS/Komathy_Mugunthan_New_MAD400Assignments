@@ -1,8 +1,14 @@
 <!-- <p>modify-content works!</p> -->
 
-<h1>
-    Add New Chesss Game
+  <h1>
+    *ngIf="(newContentItem.id ?? -1) >= 0; else addNewTitle">
+    Edit Chesss Game
   </h1>
+  <ng-template #addNewTitle>
+    <h1>
+      Add New Chess Game
+    </h1>
+  </ng-template>
   <p>
     <label *ngIf="(newContentItem.id ?? -1) >= 0">
       ID: <input disabled [(ngModel)]="newContentItem.id">
@@ -27,8 +33,14 @@
     </label>
   </p>
   <p>
-   <button (click)="addContent()">Add Content</button>
+    <button *ngIf="(newContentItem.id ?? -1) >= 0;
+      else editButton" (click)="editContent()">
+      Edit Content
+    </button>
+    <ng-template #editButton>
+      <button (click)="addContent()">Add Content</button>
+    </ng-template>
  </p>
  <p class="success-message" *ngIf="contentAddedSucessfully">
-   Content Successfully Added!
+  Content Successfully Added!
  </p>
