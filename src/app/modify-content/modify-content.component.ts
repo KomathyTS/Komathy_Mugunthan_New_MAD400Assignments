@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { catchError, throwError } from 'rxjs';
 import { INVALIDGAME } from '../data/mock-content';
 import { IContent } from '../models/icontent';
 import { ChessPlayerService } from '../service/chess-player.service';
@@ -16,7 +17,7 @@ export class ModifyContentComponent implements OnInit{
   contentAddedSucessfully = false;
   contentEditedSuccessfully = false;
 
-  constructor(private route: ActivatedRoute, private chessPlayerService: ChessPlayerService) {
+  constructor(private route: ActivatedRoute, private chessPlayerService: ChessPlayerService, private router: Router) {
     this.resetContent();
   }
 
@@ -26,9 +27,23 @@ export class ModifyContentComponent implements OnInit{
       console.log("id value from the url is: ", id);
 
       if (id) {
-        this.chessPlayerService.getContentItem(Number(id)).subscribe((chessGame: IContent) => {
-          this.newContentItem = chessGame;
-          this.stringifyTags();
+        // this.chessPlayerService.getContentItem(Number(id)).subscribe((chessGame: IContent) => {
+        //   this.newContentItem = chessGame;
+        //   this.stringifyTags();
+
+        this.chessPlayerService.getContentItem(Number(id)).pipe(
+          catchError(() => {
+            return throwError(() => new Error("Content not found"));
+          })
+        ).subscribe({
+          next: (chessGame: IContent) => {
+            this.newContentItem = chessGame;
+            this.stringifyTags();
+          },
+          error: (err) => {
+            console.error(err)
+            this.router.navigateByUrl("/addContent");
+          }
         });
       }
     })
